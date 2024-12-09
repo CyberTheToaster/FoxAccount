@@ -67,9 +67,6 @@ function logOut() {
     localStorage.removeItem("currentAcc")
     window.location = "Signin.html"
 }
-function showLogout() {
-    document.getElementById("Logout").style.visibility = "visible"
-}
 function currentUser() {
     document.getElementById("signedinas").innerHTML = "Signed In As " + localStorage.getItem("currentAcc")
 }
