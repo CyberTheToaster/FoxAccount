@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css.css">
+        <title>
+            Sign In
+        </title>
+    </head>
+    <body>
+        <div class="page">
+            <h1 class="ex">Sign In</h1>
+        </div>
+        <br>
+        <div>
+            <h3 class=" Contrast centre">Log in to an existing Account</h3>
+            <h3 class="Contrast centre">Don't have one? <a href="html.html">Log In</a> instead!</h3>
+        </div>
+        <div class="centre">
+            <div id="input">
+                <input autocomplete="email" class="border" type="email" id="3" inputmode="email" placeholder="Enter Email Here">
+                <br>
+                <input autocomplete="current-password" class="border" type="password" inputmode="verbatim" id="4" placeholder="Enter password here">
+                <br>
+            </div>
+            <div>
+                <script onload="setTimeout(checkLoggedInStatus(), 2000)" src="script.js"></script>
+                <p id="wrong" style="visibility: hidden;">Invalid Username/password</p>
+                <button onclick="validate()">Submit</button>
+            </div>
+        </div>
+    </body>
+</html>
