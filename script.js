@@ -75,14 +75,14 @@ function currentUser() {
 }
 function checkLoggedInStatus() {
     var  currentLoggedinUser = localStorage.getItem("currentAcc")
-    console.log(currentLoggedinUser == null && window.location.href == "file:///C:/Users/jwozc/Html/FoxAcc.html")
+    console.log(currentLoggedinUser == null && window.location.href == "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/FoxAcc.html")
     console.log(!(!(currentLoggedinUser ?? true)))
-    if ((window.location == "file:///C:/Users/jwozc/Html/FoxAcc.html") && ((currentLoggedinUser == null)))
-        window.location = "file:///C:/Users/jwozc/Html/Signin.html"
-    else if ((window.location.href == "file:///C:/Users/jwozc/Html/Signin.html") && (currentLoggedinUser == null))
+    if ((window.location == "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/FoxAcc.html") && ((currentLoggedinUser == null)))
+        window.location = "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/Signin.html"
+    else if ((window.location.href == "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/Signin.html") && (currentLoggedinUser == null))
         var s = 2
-    else if ((window.location.href == "file:///C:/Users/jwozc/Html/Signin.html") && !(currentLoggedinUser == null))        
-        window.location = "file:///C:/Users/jwozc/Html/FoxAcc.html"
+    else if ((window.location.href == "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/Signin.html") && !(currentLoggedinUser == null))        
+        window.location = "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/FoxAcc.html"
     else
     var s = 1  
  
