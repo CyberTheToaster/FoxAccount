@@ -2,42 +2,71 @@
     font-family: starWarsFont;
     src: url("SF Distant Galaxy.ttf");
 }
+
 .ex {
-    font-size:xx-large;
-    text-align:center;
+    font-size: xx-large;
+    text-align: center;
 }
+
 .centre {
-    text-align:center;
+    text-align: center;
 }
+
 .border {
-    border-style:ridge;
-    border-color:#6600ff;
-    border-width:15px;
-    border-radius:100pt;
-    background-color:aqua;
+    border-style: ridge;
+    border-color: #6600ff;
+    border-width: 15px;
+    border-radius: 100pt;
+    background-color: aqua;
 }
+
 .page {
-    border-color:magenta;
+    border-color: magenta;
     border-style: ridge;
     border-width: 10pt;
-    background-color:#00ff00;
+    background-color: #00ff00;
     font-family: starWarsFont;
 }
+
 body {
     background-color: rgb(59, 56, 56);
 }
 
+.uncentre {
+    text-align: right;
+    display: table-row;
+}
 
+.UwU.centre div.uncentre {
+    display: table;
+}
 
-.UwU {
-    border-color:#ff00ff;
+button.UwU {
+    border-color: #ff00ff;
     border-style: ridge;
     border-width: 10pt;
-    background-color:rgb(0, 255, 0);
+    background-color: rgb(0, 255, 0);
+    text-align: right;
 }
+
+.signedinas {
+    border-color: #ff00ff;
+    border-style: ridge;
+    border-width: 10pt;
+    background-color: rgb(0, 255, 0);
+}
+
+.UwU {
+    border-color: #ff00ff;
+    border-style: ridge;
+    border-width: 10pt;
+    background-color: rgb(0, 255, 0);
+}
+
 .Contrast {
     color: #00ff00;
 }
+
 a:webkit-any-link:not([data-css="yes"]) {
     color: #ff00ff;
 }

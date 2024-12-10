@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <Title>
-            Fox Account
-        </Title>
-        <link rel="stylesheet" href="css.css">
-    </head>
-    <body onload="currentUser(); setTimeout(checkLoggedInStatus(),3000)">
-        <script src="script.js"></script>
-        <div class="UwU centre">
-                <h3 id="signedinas" class="signedinas">
-                    Signed in as 
-                </h3>
-                <button class="UwU" onclick="logOut()">Log Out</button>
-        </div>
-                <h1 class="UwU centre">
-                    Welcome to Fox Account
-                </h1>
-    </body>
+<head>
+    <title>
+        Fox Account
+    </title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body onload="currentUser(); setTimeout(checkLoggedInStatus(),3000)">
+    <script src="script.js"></script>
+    <h1 class="UwU centre">
+        Welcome to Fox Account
+    </h1>
+    <table border="2" width="100%" class="UwU centre" style="table-layout: auto;">
+        <tbody>
+            <tr>
+                <td style="border: 0;"><button width="100%" class="UwU" onclick="logOut()">Log Out</button></td>
+                <td id="signedinas" class="signedinas UwU" border="2">Signed In As jwozcode123@gmail.com</td>
+
+            </tr>
+        </tbody>
+    </table>
+
+
+</body>
+
 </html>
