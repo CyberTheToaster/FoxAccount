@@ -74,12 +74,12 @@ function checkLoggedInStatus() {
     var currentLoggedinUser = localStorage.getItem("currentAcc")
     console.log(currentLoggedinUser == null && window.location.href == "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/FoxAcc.html")
     console.log(!(!(currentLoggedinUser ?? true)))
-    if ((window.location == "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/FoxAcc.html") && ((currentLoggedinUser == null)))
-        window.location = "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/Signin.html"
-    else if ((window.location.href == "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/Signin.html") && (currentLoggedinUser == null))
+    if ((window.location.href.indexOf("FoxAcc.html") != -1) && ((currentLoggedinUser == null)))
+        window.location = "Signin.html"
+    else if ((window.location.href.indexOf("Signin.Html")!= -1) && (currentLoggedinUser == null))
         var s = 2
-    else if ((window.location.href == "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/Signin.html") && !(currentLoggedinUser == null))
-        window.location = "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/FoxAcc.html"
+    else if ((window.location.href.indexOf("Signin.html") != -1 ) && !(currentLoggedinUser == null))
+        window.location = "FoxAcc.html"
     else
         var s = 1
 
