@@ -50,14 +50,16 @@ function validate() {
         }
     }
     catch (err) {
-        if (err == "NoAcc")
+        if (err == "NoAcc") {
             document.getElementById("wrong").style.visibility = "visible";
-        document.getElementById("wrong").style.color = "red";
-        document.getElementById("wrong").innerHTML = "Account Does Not exist";
-        if (err == "Invalid Login Details")
+            document.getElementById("wrong").style.color = "red";
+            document.getElementById("wrong").innerHTML = "Account Does Not exist";
+        }
+        if (err == "Invalid Login Details") {
             document.getElementById("wrong").style.visibility = "visible";
-        document.getElementById("wrong").style.color = "red";
-        document.getElementById("wrong").innerHTML = "Invalid Login Details";
+            document.getElementById("wrong").style.color = "red";
+            document.getElementById("wrong").innerHTML = "Invalid Login Details";
+        }
     }
 
 }
