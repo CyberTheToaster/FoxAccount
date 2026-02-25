@@ -1,1 +1,1 @@
-[Fox Account](https://github.com/CyberTheToaster/FoxAccount) © 2024 by [Amber Zylstra](https://github.com/CyberTheToaster/) is licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1)
+[Fox Account](https://github.com/CyberTheToaster/FoxAccount) © 2024 by [CyberTheToaster](https://github.com/CyberTheToaster/) is licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1)
