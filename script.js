@@ -25,7 +25,7 @@ function submitSignUp() {
             throw new Error("Email already in use");
         }
 
-        // Store mapping: email → accNumber, accNumber → password
+        // Store mapping: email -> accNumber, accNumber -> password
         const id1 = accNumberIncrease() - 1;
         const id2 = accNumber2Increase() - 1;
         localStorage.setItem(emailInput, id1);
@@ -90,5 +90,5 @@ function checkLoggedInStatus() {
 // ----------------- Init -----------------
 window.onload = () => {
     currentUser();
-    setTimeout(checkLoggedInStatus, 500);
+    checkLoggedInStatus();
 };
