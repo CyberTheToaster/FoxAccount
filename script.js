@@ -1,90 +1,94 @@
-var accNumber = Number(localStorage.getItem("currentAccNumber"))
+// ----------------- Account Numbers -----------------
+let accNumber = Number(localStorage.getItem("currentAccNumber")) || 0;
+let accNumber2 = Number(localStorage.getItem("currentAccNumber2")) || 0;
+
 function accNumberIncrease() {
-    accNumber = accNumber + 1;
-    localStorage.setItem("currentAccNumber", accNumber)
+    accNumber++;
+    localStorage.setItem("currentAccNumber", accNumber);
     return accNumber;
 }
-var accNumber2 = Number(localStorage.getItem("currentAccNumber2"))
+
 function accNumber2Increase() {
-    accNumber2 = accNumber2 + 1;
+    accNumber2++;
     localStorage.setItem("currentAccNumber2", accNumber2);
     return accNumber2;
 }
-function submit() {
+
+// ----------------- Sign Up -----------------
+function submitSignUp() {
+    const emailInput = document.getElementById("emailInput").value;
+    const passwordInput = document.getElementById("passwordInput").value;
+    const errorMsg = document.getElementById("error");
+
     try {
-        var emailForm = document.getElementById(1).value;
-        if (emailForm in localStorage) {
-            throw ("Email already in use")
-
-        }
-        if (!(emailForm in localStorage)) {
-            localStorage.setItem(document.getElementById('1').value, (accNumberIncrease() - 1)); localStorage.setItem((accNumber2Increase() - 1), document.getElementById('2').value)
-            alert("Account Created Successfully!")
-            document.getElementById("e").style.visibility = "hidden";
+        if (localStorage.getItem(emailInput) !== null) {
+            throw new Error("Email already in use");
         }
 
-    }
-    catch (err) {
-        document.getElementById("e").InnerHTML = err.message;
-        document.getElementById("e").style.visibility = "visible";
-        document.getElementById("e").style.color = "red";
+        // Store mapping: email → accNumber, accNumber → password
+        const id1 = accNumberIncrease() - 1;
+        const id2 = accNumber2Increase() - 1;
+        localStorage.setItem(emailInput, id1);
+        localStorage.setItem(String(id2), passwordInput);
+
+        alert("Account Created Successfully!");
+        errorMsg.classList.add("hidden");
+    } catch (err) {
+        errorMsg.textContent = err.message;
+        errorMsg.classList.remove("hidden");
     }
 }
-function validate() {
+
+// ----------------- Sign In -----------------
+function validateSignIn() {
+    const emailInput = document.getElementById("signinEmail").value;
+    const passwordInput = document.getElementById("signinPassword").value;
+    const errorMsg = document.getElementById("signinError");
+
     try {
-        var userIdEmail = (localStorage.getItem(String(document.getElementById("3").value)))
-        var userIdPass = (localStorage.getItem(String(userIdEmail)))
-        var userPassInput = document.getElementById("4").value
-        if (userPassInput === userIdPass) {
-            var userEmailInput = document.getElementById("3").value
-            localStorage.setItem("currentAcc", userEmailInput)
-            window.location = "FoxAcc.html"
-        }
-        document.getElementById("wrong").style.visibility = "hidden";
-        if (userIdEmail == null) {
-            throw ("NoAcc")
-        }
+        const userId = localStorage.getItem(emailInput);
+        if (userId === null) throw new Error("NoAcc");
 
-        if (!(!(userPassInput ?? userIdPass))) {
-            throw ("Invalid Login Details")
+        const storedPass = localStorage.getItem(userId);
+        if (passwordInput !== storedPass) throw new Error("Invalid Login Details");
+
+        localStorage.setItem("currentAcc", emailInput);
+        window.location.href = "FoxAcc.html";
+    } catch (err) {
+        errorMsg.classList.remove("hidden");
+        if (err.message === "NoAcc") {
+            errorMsg.textContent = "Account Does Not Exist";
+        } else {
+            errorMsg.textContent = "Invalid Login Details";
         }
     }
-    catch (err) {
-        if (err == "NoAcc") {
-            document.getElementById("wrong").style.visibility = "visible";
-            document.getElementById("wrong").style.color = "red";
-            document.getElementById("wrong").innerHTML = "Account Does Not exist";
-        }
-        if (err == "Invalid Login Details") {
-            document.getElementById("wrong").style.visibility = "visible";
-            document.getElementById("wrong").style.color = "red";
-            document.getElementById("wrong").innerHTML = "Invalid Login Details";
-        }
-    }
-
 }
-var currentLoggedinUser = localStorage.getItem("currentAcc")
+
+// ----------------- Current User / Logout -----------------
+function currentUser() {
+    const display = document.getElementById("signedinas");
+    display.textContent = "Signed In As " + (localStorage.getItem("currentAcc") || "Guest");
+}
 
 function logOut() {
-    localStorage.removeItem("currentAcc")
-    window.location = "Signin.html"
+    localStorage.removeItem("currentAcc");
+    window.location.href = "Signin.html";
 }
-function currentUser() {
-    document.getElementById("signedinas").innerHTML = "Signed In As " + localStorage.getItem("currentAcc")
-}
+
+// ----------------- Redirect Logic -----------------
 function checkLoggedInStatus() {
-    var currentLoggedinUser = localStorage.getItem("currentAcc")
-    console.log(currentLoggedinUser == null && window.location.href == "file:///C:/Users/jwozc/Documents/GitHub/FoxAccount/FoxAcc.html")
-    console.log(!(!(currentLoggedinUser ?? true)))
-    if ((window.location.href.indexOf("FoxAcc.html") != -1) && ((currentLoggedinUser == null)))
-        window.location = "Signin.html"
-    else if ((window.location.href.indexOf("Signin.Html")!= -1) && (currentLoggedinUser == null))
-        var s = 2
-    else if ((window.location.href.indexOf("Signin.html") != -1 ) && !(currentLoggedinUser == null))
-        window.location = "FoxAcc.html"
-    else
-        var s = 1
+    const currentUserEmail = localStorage.getItem("currentAcc");
+    const page = window.location.href;
 
+    if (page.includes("FoxAcc.html") && !currentUserEmail) {
+        window.location.href = "Signin.html";
+    } else if (page.includes("Signin.html") && currentUserEmail) {
+        window.location.href = "FoxAcc.html";
+    }
 }
 
-
+// ----------------- Init -----------------
+window.onload = () => {
+    currentUser();
+    setTimeout(checkLoggedInStatus, 500);
+};
