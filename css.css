@@ -1,9 +1,17 @@
 @font-face {
-    font-family: starWarsFont;
+    font-family: 'starWarsFont';
     src: url("SF Distant Galaxy.ttf");
 }
 
-.ex {
+body {
+    background-color: rgb(59, 56, 56);
+    font-family: 'starWarsFont', sans-serif;
+    color: #00ff00;
+    margin: 0;
+    padding: 0;
+}
+
+h1.ex {
     font-size: xx-large;
     text-align: center;
 }
@@ -15,58 +23,59 @@
 .border {
     border-style: ridge;
     border-color: #6600ff;
-    border-width: 15px;
-    border-radius: 100pt;
+    border-width: 10px;
+    border-radius: 50px;
     background-color: aqua;
+    padding: 10px;
+    margin: 10px 0;
 }
 
 .page {
     border-color: magenta;
     border-style: ridge;
-    border-width: 10pt;
+    border-width: 10px;
     background-color: #00ff00;
-    font-family: starWarsFont;
-}
-
-body {
-    background-color: rgb(59, 56, 56);
-}
-
-.uncentre {
-    text-align: right;
-    display: table-row;
-}
-
-.UwU.centre div.uncentre {
-    display: table;
+    padding: 20px;
+    margin: 20px auto;
+    width: fit-content;
+    text-align: center;
 }
 
 button.UwU {
     border-color: #ff00ff;
     border-style: ridge;
-    border-width: 10pt;
+    border-width: 10px;
     background-color: rgb(0, 255, 0);
-    text-align: right;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 .signedinas {
     border-color: #ff00ff;
     border-style: ridge;
-    border-width: 10pt;
+    border-width: 10px;
     background-color: rgb(0, 255, 0);
-}
-
-.UwU {
-    border-color: #ff00ff;
-    border-style: ridge;
-    border-width: 10pt;
-    background-color: rgb(0, 255, 0);
+    padding: 10px;
+    display: inline-block;
+    margin-left: 10px;
 }
 
 .Contrast {
     color: #00ff00;
 }
 
-a:webkit-any-link:not([data-css="yes"]) {
+.hidden {
+    visibility: hidden;
+}
+
+a {
     color: #ff00ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
